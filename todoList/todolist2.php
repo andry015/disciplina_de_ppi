@@ -2,7 +2,7 @@
 
 # Conexão com o banco9
 $localhost = "localhost";
-$banco = "todo_list";
+$banco = "todo_list2";
 $usuario = "root";
 $senha = "";
 
@@ -24,6 +24,15 @@ if(isset($_POST['descrição']) && !empty(trim($_POST['descricao']))){
 
 # Exclusão de tarefas
 
+if(isset($_GET['id'])){
+    $id = intval($_GET['delete']);
+    $sqlDelete = "DELETE FROM tarefas WHERE id = $id";
+
+    if($conn -> query($sqlDelete) == TRUE){
+        header("location: todolist2.php");
+       }
+}
+
 
 $tarefas=[]; 
 # Listar tarefas
@@ -32,7 +41,7 @@ $sqlSelect = "SELECT * FROM tarefas ORDER BY data_criacao DESC";
 
 $resultado = $conn -> query($sqlSelect);
 
-if($resultados -> num_rows > 0){
+if($resultado -> $row > 0){
     while($row = $resultado->fetch_assoc()){
         $tarefas = $row;
     }
@@ -61,6 +70,7 @@ if($resultados -> num_rows > 0){
             <?php foreach($tarefas as $tarefa):?>
             <li>
                 <?php echo $tarefa['descricao'] ?>
+                <a href="todoList2.php?delete=<?php $tarefa['id'] ?>">Excluir</a>
             </li>
             <?php endforeach ?>
         </ul>
