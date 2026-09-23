@@ -3,6 +3,8 @@
 require_once __DIR__ . '/../config/database.php';
 
 class Tarefa{
+
+    
     private $conn;
 
     public function __construct(){
@@ -38,6 +40,14 @@ class Tarefa{
     public function excluir($id){
         $id = intval($id);
         $sql = "DELETE FROM tarefas WHERE id = $id";
+        return $this->conn->query($sql);
+    }
+
+    #Editar
+    public function editar($descricao, $id){
+        $descricao = $this->conn->real_escape_string($descricao);
+        $id = intval($id);
+        $sql = "UPDATE tarefas SET descicao = '$descricao' WHERE id = $id";
         return $this->conn->query($sql);
     }
 
