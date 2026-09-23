@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>To-Do List (MVC)</title>
     <style>
+<<<<<<< HEAD
         .modal {
             display: none;
 
@@ -27,6 +28,8 @@
 
             border-radius: 10px;
         }
+=======
+>>>>>>> 2b1519c847e80add92e4b9a56dc34afe724eb7e0
     </style>
 </head>
 <body>
@@ -43,6 +46,7 @@
         <ul>
             <?php foreach ($tarefas as $tarefa): ?>
                 <li>
+<<<<<<< HEAD
                     <?php echo ($tarefa['descricao']); ?>
                     <a href="index.php?action=excluir&id=<?php echo $tarefa['id']; ?>">
                         Excluir
@@ -52,12 +56,17 @@
                             '<?php echo ($tarefa['descricao']); ?>')">
                         Editar
                     </button>
+=======
+                    <?php echo htmlspecialchars($tarefa['descricao']); ?>
+                    <a href="index.php?action=excluir&id=<?php echo $tarefa['id']; ?>">Excluir</a>
+>>>>>>> 2b1519c847e80add92e4b9a56dc34afe724eb7e0
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
         <p>Não há tarefas ainda!</p>
     <?php endif; ?>
 
+<<<<<<< HEAD
     <?php include __DIR__ . '\modalEditar.php'; ?>
 
 
@@ -73,5 +82,7 @@
         }
     </script>
 
+=======
+>>>>>>> 2b1519c847e80add92e4b9a56dc34afe724eb7e0
 </body>
 </html>
