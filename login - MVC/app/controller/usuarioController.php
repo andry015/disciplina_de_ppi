@@ -33,7 +33,37 @@ class usuarioController{
             $erro = "Preencha seu email e senha.";
             include __DIR__ . "/../view/login.php";
         }
+
+        $usuario = $this->usuarioModel->buscarPorEmail($email);
+
+        if($usuario && password_verify($senha, $usuario['senha'])){
+            session_regenerate_id(true);
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header("Location: index.php?action=painel");
+            exit;
+        }
+
+        $erro = "e-mail ou senha cadastrada estão incorretos";
+        include __DIR__ . '/../view/login.php';
+
     }
+
+    public function painel(){
+        if(!isset($_SESSION['id'])){
+            header("Location: index.php");
+            exit;
+        }
+
+        include __DIR__ . '/../view/painel.php';
+    }
+
+    public function logout(){
+        header("Location: index.php");
+        exit;
+    }
+
 }
 
 ?>
