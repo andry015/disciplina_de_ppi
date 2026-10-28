@@ -4,7 +4,7 @@ class Database{
     private $host = 'localhost';
     private $username = 'root';
     private $senha = '';
-    private $banco = 'login';
+    private $banco = 'todo_list';
 
     public $conn = '';
 

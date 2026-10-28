@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../config/databse.php';
+require_once __DIR__ . '/../config/database.php';
 
 class usuario{
 
