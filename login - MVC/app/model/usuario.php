@@ -6,8 +6,8 @@ class usuario{
 
     private $conn;
 
-    public function _construct(){
-        $db = new Databse();
+    public function __construct(){
+        $db = new Database();
         $this->conn = $db->conectar();
     }
 

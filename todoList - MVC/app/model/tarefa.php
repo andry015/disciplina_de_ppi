@@ -29,7 +29,7 @@ class Tarefa{
     }
 
     #CRIAR
-    public function criar($descricaoao){
+    public function criar($descricao){
         $descricao = $this->conn->real_escape_string($descricao);
         $sql = "INSERT INTO tarefas (descricao) VALUES ('$descricao')";
         return $this->conn->query($sql);

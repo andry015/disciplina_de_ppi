@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/app/controller/controller.php';
-$controler = new tarefaController();
+$controller = new tarefaController();
 $action = $_GET['action'] ?? 'index';
 
 switch($action){
