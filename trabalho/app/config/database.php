@@ -8,14 +8,14 @@ class Database{
 
     public $conn = '';
 
-    public function conectar(){
+    public function conectar(): mysqli{
         $conn = new mysqli($this->host, $this->username, $this->senha, $this->banco);
 
-        if($this->conn->connect_error){
+        if($conn->connect_error){
             die("Deu erro na conexão do banco (se lascou kkkkkkk)");
         }
 
-        return $this->conn;
+        return $conn;
     }
 }
 

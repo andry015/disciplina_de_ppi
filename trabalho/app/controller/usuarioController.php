@@ -45,7 +45,7 @@ class usuarioController{
             exit;
         }
 
-        $erro = "e-mail ou senha cadastrada estão incorretos";
+        $erro = "e-mail ou senha cadastrada estao incorretos";
         include __DIR__ . '/../view/login.php';
 
     }
@@ -56,7 +56,7 @@ class usuarioController{
             exit;
         }
 
-        include __DIR__ . '/../view/painel.php';
+        include __DIR__ . 'index.php?action=tarefas';
     }
 
     public function logout(){
