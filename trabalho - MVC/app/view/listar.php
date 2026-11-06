@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>To-Do List (MVC)</title>
+
+    <h1>
+        Bem-vindo,
+        <?php echo ($_SESSION['nome']); ?>
+    </h1>
+
+    <p>
+        <a href="index.php?action=logout">Sair</a>
+    </p>
     <style>
 <<<<<<< HEAD
         .modal {

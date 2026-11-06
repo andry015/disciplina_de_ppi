@@ -9,8 +9,17 @@ class tarefaController{
         $this->tarefaModel = new Tarefa();
     }
 
+    public function exigirLogin(){
+        if(!isset($_SESSION['id'])){
+            header('Location: index.php');
+            exit;
+        }
+        return (int) $_SESSION['id'];
+    }
+
     public function index(){
-        $tarefas = $this->tarefaModel->listar();
+        $idUser = $this->exigirLogin();
+        $tarefas = $this->tarefaModel->listar($idUser);
         include __DIR__ . '/../view/listar.php';
     }
 
