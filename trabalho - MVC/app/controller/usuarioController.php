@@ -21,7 +21,7 @@ class usuarioController{
     }
 
     public function autenticar(){
-        if(isset($_POST['email'], $_POST['senha'])){
+        if(!isset($_POST['email'], $_POST['senha'])){
             header("location: index.php");
             exit;
         }
@@ -32,6 +32,7 @@ class usuarioController{
         if(empty($email) || empty($senha)){
             $erro = "Preencha seu email e senha.";
             include __DIR__ . "/../view/login.php";
+            exit;
         }
 
         $usuario = $this->usuarioModel->buscarPorEmail($email);
@@ -60,6 +61,7 @@ class usuarioController{
     }
 
     public function logout(){
+        session_destroy();
         header("Location: index.php");
         exit;
     }

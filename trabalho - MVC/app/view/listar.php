@@ -13,7 +13,7 @@
         <a href="index.php?action=logout">Sair</a>
     </p>
     <style>
-<<<<<<< HEAD
+
         .modal {
             display: none;
 
@@ -37,8 +37,8 @@
 
             border-radius: 10px;
         }
-=======
->>>>>>> 2b1519c847e80add92e4b9a56dc34afe724eb7e0
+
+        
     </style>
 </head>
 <body>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/app/controller/tarefaController.php';
 require_once __DIR__ . '/app/controller/usuarioController.php';
 $tarefaController = new tarefaController();
@@ -12,8 +13,11 @@ switch($action){
     case 'logout':
         $usuarioController->logout();
         break;    
+    case 'tarefas':
+        $tarefaController->index();
+        break;
 
-      
+        
     case 'criar':
         $tarefaController->criar();
         break;
