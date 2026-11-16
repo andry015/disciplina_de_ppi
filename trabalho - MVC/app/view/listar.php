@@ -56,42 +56,37 @@
         <ul>
             <?php foreach ($tarefas as $tarefa): ?>
                 <li>
-<<<<<<< HEAD
                     <?php echo ($tarefa['descricao']); ?>
                     <a href="index.php?action=excluir&id=<?php echo $tarefa['id']; ?>">
                         Excluir
                     </a>
-                    <button
-                        type="button" onclick="abrirModal(<?php echo (int) $tarefa['id'] ?>)"; ?>,
-                            '<?php echo json_encode($tarefa['descricao']); ?>'>
+                    <button type="button"
+                        onclick="abrirModal(<?php echo (int) $tarefa['id']; ?>, <?php echo htmlspecialchars(json_encode($tarefa['descricao']), ENT_QUOTES); ?>)">
                         Editar
                     </button>
                 </li>
-=======
->>>>>>> 2b1519c847e80add92e4b9a56dc34afe724eb7e0
+
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
         <p>Não há tarefas ainda!</p>
     <?php endif; ?>
 
-<<<<<<< HEAD
-    <?php include __DIR__ . '\modalEditar.php'; ?>
+    <?php include __DIR__ . '/modalEditar.php'; ?>
 
 
     <script>
         function abrirModal(id, descricao){
             document.getElementById("editarId").value = id
             document.getElementById("editarDescricao").value = descricao
-            document.getElementById("modalEditar").style.display("block")
+            document.getElementById("modalEditar").style.display = "block";
         }
 
         function feharModal(id, descricao){
-            document.getElementById("modalEditar").style.display("none")
+            document.getElementById("modalEditar").style.display ="none";
         }
     </script>
 
-=======
->>>>>>> 2b1519c847e80add92e4b9a56dc34afe724eb7e0
+
 </body>
 </html>
