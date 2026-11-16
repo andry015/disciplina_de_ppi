@@ -18,31 +18,37 @@ class tarefaController{
     }
 
     public function index(){
-        $idUser = $this->exigirLogin();
-        $tarefas = $this->tarefaModel->listar($idUser);
+        $id_usuario = $this->exigirLogin();
+        $tarefas = $this->tarefaModel->listar($id_usuario);
         include __DIR__ . '/../view/listar.php';
     }
 
     public function criar(){
+        $id_usuario = $this->exigirLogin();
         if(isset($_POST['descricao']) && !empty(trim($_POST['descricao']))){
-            $this->tarefaModel->criar($_POST['descricao']);
+            $this->tarefaModel->criar(trim($_POST['descricao']), $id_usuario);
         }
-        header("Location: index.php");    
+        header("Location: index.php?action=tarefas");
+        exit;    
     }
 
     public function excluir(){
+        $id_usuario = $this->exigirLogin();
         if(isset($_GET['id'])){
-            $this->tarefaModel->excluir($_GET['id']);
+            $this->tarefaModel->excluir((int) $_GET['id'], $id_usuario);
         }
-        header("Location: index.php");
+        header("Location: index.php?action=tarefas");
+        exit;
     }
 
     public function editar(){
+        $id_usuario = $this->exigirLogin();
         if(isset($_POST['id']) && isset($_POST['descricao']) && !empty(trim($_POST['descricao']))){
-            $this->tarefaModel->editar($_POST['descricao'], $_POST['id']);
+            $this->tarefaModel->editar(trim($_POST['descricao']), (int) $_POST['id'], $id_usuario);
         }
 
-        header("Location: index.php");
+        header("Location: index.php?action=tarefas");
+        exit;
     
     }
 

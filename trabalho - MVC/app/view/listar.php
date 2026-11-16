@@ -4,14 +4,6 @@
     <meta charset="UTF-8">
     <title>To-Do List (MVC)</title>
 
-    <h1>
-        Bem-vindo,
-        <?php echo ($_SESSION['nome']); ?>
-    </h1>
-
-    <p>
-        <a href="index.php?action=logout">Sair</a>
-    </p>
     <style>
 
         .modal {
@@ -43,6 +35,15 @@
 </head>
 <body>
 
+    <h1> 
+        Bem-vindo,
+        <?php echo ($_SESSION['nome']); ?>
+    </h1>
+
+    <p>
+        <a href="index.php?action=logout">Sair</a>
+    </p>
+
     <h1>TO-DO List (MVC)</h1>
 
     <form action="index.php?action=criar" method="POST">
@@ -61,13 +62,12 @@
                         Excluir
                     </a>
                     <button
-                        onclick="abrirModal(<?php echo $tarefa['id']; ?>,
-                            '<?php echo ($tarefa['descricao']); ?>')">
+                        type="button" onclick="abrirModal(<?php echo (int) $tarefa['id'] ?>)"; ?>,
+                            '<?php echo json_encode($tarefa['descricao']); ?>'>
                         Editar
                     </button>
+                </li>
 =======
-                    <?php echo htmlspecialchars($tarefa['descricao']); ?>
-                    <a href="index.php?action=excluir&id=<?php echo $tarefa['id']; ?>">Excluir</a>
 >>>>>>> 2b1519c847e80add92e4b9a56dc34afe724eb7e0
             <?php endforeach; ?>
         </ul>
