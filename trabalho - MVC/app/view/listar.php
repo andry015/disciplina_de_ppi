@@ -56,7 +56,7 @@
         <ul>
             <?php foreach ($tarefas as $tarefa): ?>
                 <li>
-                    <?php echo ($tarefa['descricao']); ?>
+                    <?php echo htmlspecialchars($tarefa['descricao']); ?>
                     <a href="index.php?action=excluir&id=<?php echo $tarefa['id']; ?>">
                         Excluir
                     </a>
@@ -82,7 +82,7 @@
             document.getElementById("modalEditar").style.display = "block";
         }
 
-        function feharModal(id, descricao){
+        function fecharModal(id, descricao){
             document.getElementById("modalEditar").style.display ="none";
         }
     </script>

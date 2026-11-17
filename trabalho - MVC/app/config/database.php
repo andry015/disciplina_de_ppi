@@ -10,7 +10,7 @@ class Database{
         $conn = new mysqli($this->host, $this->username, $this->senha, $this->banco);
 
         if($conn->connect_error){
-            die("Deu erro na conexão do banco (se lascou kkkkkkk)") . $conn->connect_error;
+            die("Deu erro na conexão do banco (se lascou kkkkkkk)" . $conn->connect_error);
         }
 
         return $conn;
