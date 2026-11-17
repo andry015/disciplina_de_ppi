@@ -40,10 +40,6 @@
         <?php echo ($_SESSION['nome']); ?>
     </h1>
 
-    <p>
-        <a href="index.php?action=logout">Sair</a>
-    </p>
-
     <h1>TO-DO List (MVC)</h1>
 
     <form action="index.php?action=criar" method="POST">
@@ -86,6 +82,11 @@
             document.getElementById("modalEditar").style.display ="none";
         }
     </script>
+
+    
+    <p>
+        <a href="index.php?action=logout">Sair</a>
+    </p>
 
 
 </body>
